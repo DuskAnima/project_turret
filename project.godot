@@ -10,10 +10,18 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
-run/main_scene="uid://bpt28dr7mfr5p"
+config/name="project_turret"
+run/main_scene="uid://bd2my0qpmv32g"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://assets/icon.svg"
+
+[input]
+
+shoot={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(87, 16),"global_position":Vector2(94, 53),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [rendering]
 
