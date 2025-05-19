@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var speed : int = 200
+var direction : Vector2 = Vector2.UP.rotated(rotation)
+#
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,7 +22,7 @@ func bullet_orientation():
 	rotation_degrees += 90 # le suma 90° a la posicón en radiants para orientar el objeto hacia adelante
 
 func bullet_movement(delta):
-	position += Vector2.UP * speed * delta
+	position += direction * speed * delta
 
 	
 	# Quiero que la bala se mueva hacia el mouse
