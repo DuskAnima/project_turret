@@ -12,5 +12,4 @@ func _process(delta: float) -> void:
 	pass
 
 func on_bullet_added():
-	get_t
-	if child_entered_tree and child
+	pass
