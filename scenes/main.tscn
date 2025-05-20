@@ -7,3 +7,5 @@
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="BulletNotifier" type="VisibleOnScreenNotifier2D" parent="."]
