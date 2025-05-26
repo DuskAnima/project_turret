@@ -24,3 +24,8 @@ func bullet_movement(delta):
 	# avanza hacia la izquierda (UP = Y) porque el objeto se instancia rotado a la izquierda.
 	# Luego según se aplica esta dirección en función a la rotación que tiene el objeto tras ser instanciado
 	position += direction * speed * delta # Finalmente se opera con la velocidad y delta time
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
+	pass # Replace with function body.
