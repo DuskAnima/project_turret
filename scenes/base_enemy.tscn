@@ -1,13 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://ju0cl05hdcx5"]
+[gd_scene load_steps=6 format=3 uid="uid://ju0cl05hdcx5"]
 
 [ext_resource type="Shader" uid="uid://cw2hmcmy7g1dc" path="res://shaders/base_enemy.gdshader" id="1_2kb2m"]
+[ext_resource type="Script" uid="uid://bknxjysjsjegg" path="res://scripts/base_enemy.gd" id="1_kegi0"]
 [ext_resource type="Texture2D" uid="uid://gqko7jyfg1sl" path="res://assets/icon.svg" id="3_64ljx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sw3va"]
 shader = ExtResource("1_2kb2m")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw3va"]
+size = Vector2(132, 134)
+
 [node name="BaseEnemy" type="Node2D"]
+script = ExtResource("1_kegi0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_sw3va")
 texture = ExtResource("3_64ljx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_sw3va")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
