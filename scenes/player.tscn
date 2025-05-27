@@ -12,5 +12,3 @@ texture = ExtResource("2_qhqgy")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(64, 0)
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
