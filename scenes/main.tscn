@@ -13,10 +13,10 @@ metadata/_edit_lock_ = true
 
 [node name="BulletHandler" type="Node2D" parent="."]
 
-[node name="EnemyHandler" type="Node2D" parent="."]
+[node name="TargetHandler" type="Node2D" parent="."]
 
-[node name="BaseEnemy" parent="EnemyHandler" instance=ExtResource("2_0wfyh")]
+[node name="BaseEnemy" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
 position = Vector2(360, 87)
 
-[node name="BaseEnemy2" parent="EnemyHandler" instance=ExtResource("2_0wfyh")]
+[node name="BaseEnemy2" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
 position = Vector2(894, 100)
