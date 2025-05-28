@@ -29,5 +29,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(_area: Area2D) -> void:
+	# Cabe la posibilidad de pasar a eliminar la bala con el propio cuerpo, ojo cuidao
 	queue_free()
