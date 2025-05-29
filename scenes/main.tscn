@@ -9,6 +9,7 @@
 position = Vector2(574, 324)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.9, 0.9)
 metadata/_edit_lock_ = true
 
 [node name="BulletHandler" type="Node2D" parent="."]
@@ -16,7 +17,34 @@ metadata/_edit_lock_ = true
 [node name="TargetHandler" type="Node2D" parent="."]
 
 [node name="BaseEnemy" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(360, 87)
+position = Vector2(398, -36)
 
 [node name="BaseEnemy2" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(894, 100)
+position = Vector2(681, -61)
+
+[node name="BaseEnemy3" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
+position = Vector2(538, -50)
+
+[node name="BaseEnemy4" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
+position = Vector2(809, -72)
+
+[node name="BaseEnemy5" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
+position = Vector2(947, -79)
+
+[node name="TargetHandler" type="Node2D" parent="TargetHandler"]
+position = Vector2(-28, 766)
+
+[node name="BaseEnemy" parent="TargetHandler/TargetHandler" instance=ExtResource("2_0wfyh")]
+position = Vector2(398, -36)
+
+[node name="BaseEnemy2" parent="TargetHandler/TargetHandler" instance=ExtResource("2_0wfyh")]
+position = Vector2(681, -61)
+
+[node name="BaseEnemy3" parent="TargetHandler/TargetHandler" instance=ExtResource("2_0wfyh")]
+position = Vector2(538, -50)
+
+[node name="BaseEnemy4" parent="TargetHandler/TargetHandler" instance=ExtResource("2_0wfyh")]
+position = Vector2(809, -72)
+
+[node name="BaseEnemy5" parent="TargetHandler/TargetHandler" instance=ExtResource("2_0wfyh")]
+position = Vector2(947, -79)
