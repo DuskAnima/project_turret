@@ -18,9 +18,11 @@ func shoot():
 	if Input.is_action_just_pressed("shoot"):
 		var gun_pos = $Marker2D.get_global_position() #Marcador de spawn de balas
 		var bullet = preload("res://scenes/bullet.tscn").instantiate() #Instanciador de balas
+		bullet.get_node("Area2D").add_to_group("player") # Agrega el Area2D al grupo "player"
 		get_tree().root.get_node("Main/BulletHandler").add_child(bullet)
 		bullet.global_position = gun_pos
 		bullet.global_rotation_degrees = global_rotation_degrees + 90
+		
 		
 func delete_bullets():
 	var camera = get_tree().root.get_node("Main/Player/Camera2D")
