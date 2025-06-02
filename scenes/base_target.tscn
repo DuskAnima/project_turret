@@ -7,21 +7,24 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sw3va"]
 shader = ExtResource("1_2kb2m")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw3va"]
-size = Vector2(128, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_666js"]
+size = Vector2(63.8687, 64.131)
 
 [node name="BaseTarget" type="Node2D"]
 script = ExtResource("1_kegi0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_sw3va")
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_64ljx")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_sw3va")
+rotation = 1.57285
+shape = SubResource("RectangleShape2D_666js")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(3.2, 3.2)
 
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

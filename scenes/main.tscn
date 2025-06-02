@@ -1,50 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd2my0qpmv32g"]
-
-[ext_resource type="PackedScene" uid="uid://3v2a7gtjfvo7" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://ju0cl05hdcx5" path="res://scenes/base_target.tscn" id="2_0wfyh"]
+[gd_scene format=3 uid="uid://bd2my0qpmv32g"]
 
 [node name="Main" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(574, 324)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.9, 0.9)
 metadata/_edit_lock_ = true
 
 [node name="BulletHandler" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="TargetHandler" type="Node2D" parent="."]
-
-[node name="BaseEnemy" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(398, -36)
-
-[node name="BaseEnemy2" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(681, -61)
-
-[node name="BaseEnemy3" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(538, -50)
-
-[node name="BaseEnemy4" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(809, -72)
-
-[node name="BaseEnemy5" parent="TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(947, -79)
-
-[node name="TargetHandler" type="Node2D" parent="TargetHandler"]
-position = Vector2(-28, 766)
-
-[node name="BaseEnemy" parent="TargetHandler/TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(398, -36)
-
-[node name="BaseEnemy2" parent="TargetHandler/TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(681, -61)
-
-[node name="BaseEnemy3" parent="TargetHandler/TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(538, -50)
-
-[node name="BaseEnemy4" parent="TargetHandler/TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(809, -72)
-
-[node name="BaseEnemy5" parent="TargetHandler/TargetHandler" instance=ExtResource("2_0wfyh")]
-position = Vector2(947, -79)
+metadata/_edit_lock_ = true

@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	pass # Replace with function body.
-	print(_enabler_box_area_setter())
+	_enabler_box_area_setter()
 func _process(_delta: float) -> void:
 	pass
 
@@ -16,3 +16,5 @@ func _enabler_box_area_setter():
 	var collision_area = $Area2D/CollisionShape2D.shape.get_rect()
 	var enabler_area = $VisibleOnScreenEnabler2D
 	enabler_area.rect = collision_area
+	print(collision_area)
+	print(enabler_area.rect)
