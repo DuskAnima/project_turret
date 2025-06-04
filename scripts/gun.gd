@@ -14,9 +14,6 @@ func shoot():
 	if Input.is_action_just_pressed("shoot") and can_shoot == true:
 		_create_bullet()
 
-	
-	
-		
 # Función que instancia una bala en una posición dada
 func _create_bullet():
 	var shooter_owner = owner.get_groups()[0]
@@ -26,7 +23,4 @@ func _create_bullet():
 	bullet.global_position = global_position
 	bullet.global_rotation_degrees = global_rotation_degrees + 90
 
-
-
-func _gun_cooldown_timeout() -> void:
-	pass # Replace with function body.
+# Falta crear el cooldown de la pistola.
