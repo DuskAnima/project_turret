@@ -1,24 +1,26 @@
 extends PathFollow2D
 
-# Variables
-@export var speed : int = 50
-var gun : PackedScene = preload('res://scenes/gun.tscn')
-var right_hand_active : bool = false
-var left_hand_active : bool = false
+# Variables de control
+var right_hand_active : bool = false # Notifica que la mano derecha tiene arma
+var left_hand_active : bool = false # Notifica  que la mano izquierda tiene arma
 
-# Hands Stuff
+# Escenas importadas
+var gun : PackedScene = preload('res://scenes/gun.tscn') # Escena del arma
+
+# Propiedades del player
+var speed : int = 50 # Velocidad de movimiento
+var right_hand_gun : Node2D # Variable que almacena el arma que tendrá el player en la derecha
+var left_hand_gun : Node2D # Variable que almacena el aram que tendrá el player en la izquierda
 
 func _ready():
-	_add_gun_rigth()
-	_add_gun_left()
-	pass # Replace with function body.
+	right_hand_gun = _add_gun_rigth() # Asignación de la primera arma
 
 func _process(delta: float):
 	_mouse_follow()
 	_movement(delta)
 
 func _input(_event: InputEvent):
-	shoot()
+	right_hand_gun.shoot()
 
 # Función que define el movimiento
 func _movement(delta):
@@ -29,31 +31,16 @@ func _mouse_follow():
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	look_at(mouse_pos)
 
-# Función de Input que detona un disparo con un click
-func shoot():
-	if Input.is_action_just_pressed("shoot"):
-		if right_hand_active == true:
-			var gun_pos = $RigthHand.get_node("Gun/Marker2D").get_global_position() #Marcador de spawn de balas
-			_create_bullet(gun_pos)
-		if left_hand_active == true:
-			var gun_pos = $LeftHand.get_node("Gun/Marker2D").get_global_position() #Marcador de spawn de balas
-			_create_bullet(gun_pos)
-
-# Función que instancia una bala en una posición dada
-func _create_bullet(gun_pos):
-	var bullet = preload("res://scenes/bullet.tscn").instantiate() #Instanciador de balas
-	bullet.get_node("Area2D").add_to_group("player") # Agrega el Area2D al grupo "player"
-	get_tree().root.get_node("Main/BulletHandler").add_child(bullet)
-	bullet.global_position = gun_pos
-	bullet.global_rotation_degrees = global_rotation_degrees + 90
-
-# Función creada para agregar armas a las respectivas manos
-func _add_gun_rigth():
-	var gun_instance = gun.instantiate()
-	if true:
-		$RigthHand.add_child(gun_instance)
-		right_hand_active = true
-func _add_gun_left():
-	var gun_instance = gun.instantiate()
-	if true:
-		$LeftHand.add_child(gun_instance)
+# Función para crear y manipular los nodos de armas en las manos del player
+func _add_gun_rigth() -> Node2D: # Nodo Gun asignado a la mano derecha
+	var right_gun_instance : Node2D = gun.instantiate()
+	$RigthHand.add_child(right_gun_instance)
+	right_hand_active = true
+	right_gun_instance.owner = self
+	return right_gun_instance
+func _add_gun_left() -> Node2D: # Nodo Gun asignado a la mano izquierda
+	var left_gun_instance = gun.instantiate()
+	$LeftHand.add_child(left_gun_instance)
+	left_hand_active = true
+	left_gun_instance.owner = self
+	return left_gun_instance
