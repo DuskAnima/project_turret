@@ -10,21 +10,22 @@ var left_hand_active : bool = false
 
 func _ready():
 	_add_gun_rigth()
+	_add_gun_left()
 	pass # Replace with function body.
 
 func _process(delta: float):
-	mouse_follow()
-	movement(delta)
+	_mouse_follow()
+	_movement(delta)
 
 func _input(_event: InputEvent):
 	shoot()
 
 # Función que define el movimiento
-func movement(delta):
+func _movement(delta):
 	progress += speed * delta
 
 # Función que determina la dirección del Player en base a la posición del mouse
-func mouse_follow():
+func _mouse_follow():
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	look_at(mouse_pos)
 
@@ -33,11 +34,18 @@ func shoot():
 	if Input.is_action_just_pressed("shoot"):
 		if right_hand_active == true:
 			var gun_pos = $RigthHand.get_node("Gun/Marker2D").get_global_position() #Marcador de spawn de balas
-			var bullet = preload("res://scenes/bullet.tscn").instantiate() #Instanciador de balas
-			bullet.get_node("Area2D").add_to_group("player") # Agrega el Area2D al grupo "player"
-			get_tree().root.get_node("Main/BulletHandler").add_child(bullet)
-			bullet.global_position = gun_pos
-			bullet.global_rotation_degrees = global_rotation_degrees + 90
+			_create_bullet(gun_pos)
+		if left_hand_active == true:
+			var gun_pos = $LeftHand.get_node("Gun/Marker2D").get_global_position() #Marcador de spawn de balas
+			_create_bullet(gun_pos)
+
+# Función que instancia una bala en una posición dada
+func _create_bullet(gun_pos):
+	var bullet = preload("res://scenes/bullet.tscn").instantiate() #Instanciador de balas
+	bullet.get_node("Area2D").add_to_group("player") # Agrega el Area2D al grupo "player"
+	get_tree().root.get_node("Main/BulletHandler").add_child(bullet)
+	bullet.global_position = gun_pos
+	bullet.global_rotation_degrees = global_rotation_degrees + 90
 
 # Función creada para agregar armas a las respectivas manos
 func _add_gun_rigth():

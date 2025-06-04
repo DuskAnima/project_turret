@@ -16,5 +16,5 @@ func _enabler_box_area_setter():
 	var collision_area = $Area2D/CollisionShape2D.shape.get_rect()
 	var enabler_area = $VisibleOnScreenEnabler2D
 	enabler_area.rect = collision_area
-	print(collision_area)
-	print(enabler_area.rect)
+	#print(collision_area)
+	#print(enabler_area.rect)
