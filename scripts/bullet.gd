@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed : int = 200 # Velocidad de la bala
+@export var speed : int = 1300 # Velocidad de la bala
 
 func _ready():
 	bullet_orientation()
