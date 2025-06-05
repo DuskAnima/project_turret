@@ -18,3 +18,7 @@ position = Vector2(32, 24)
 
 [node name="LeftHand" type="Marker2D" parent="."]
 position = Vector2(32, -24)
+
+[node name="ShootCooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]

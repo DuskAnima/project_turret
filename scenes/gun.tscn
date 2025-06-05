@@ -18,4 +18,5 @@ metadata/_edit_lock_ = true
 position = Vector2(32, 0)
 
 [node name="GunCooldown" type="Timer" parent="."]
-one_shot = true
+
+[connection signal="timeout" from="GunCooldown" to="." method="_on_gun_cooldown_timeout"]
