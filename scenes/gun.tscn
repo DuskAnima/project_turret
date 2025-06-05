@@ -16,7 +16,3 @@ metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(32, 0)
-
-[node name="GunCooldown" type="Timer" parent="."]
-
-[connection signal="timeout" from="GunCooldown" to="." method="_on_gun_cooldown_timeout"]
