@@ -15,6 +15,15 @@ run/main_scene="uid://c0tbo2nhcttrj"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/inferred_declaration=1
+
+[display]
+
+window/size/always_on_top=true
+
 [global_group]
 
 player="Player stuff"

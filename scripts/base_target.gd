@@ -12,9 +12,9 @@ func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_in
 		queue_free() #deletes the enemy
 
 # Función que establece el area del Enabler2D. ### Solo funciona si es un cuadrado! probar en otras formas
-func _enabler_box_area_setter():
-	var collision_area = $Area2D/CollisionShape2D.shape.get_rect()
-	var enabler_area = $VisibleOnScreenEnabler2D
+func _enabler_box_area_setter() -> void:
+	var collision_area : Rect2 = $Area2D/CollisionShape2D.shape.get_rect()
+	var enabler_area : VisibleOnScreenEnabler2D = $VisibleOnScreenEnabler2D
 	enabler_area.rect = collision_area
 	#print(collision_area)
 	#print(enabler_area.rect)
