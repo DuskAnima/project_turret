@@ -41,6 +41,6 @@ func _kill_or_spare(area: Area2D) -> void:
 	var target_group : Array =  area.get_groups() # Grupo del objetivo
 	if bullet_group != target_group: 
 		queue_free()
-		print("muere ctm")
-	else:
-		print("te salvaste machucao")
+		#print("muere ctm")
+	#else:
+		#print("te salvaste machucao")
