@@ -1,6 +1,9 @@
 extends Node2D
 
-@export var speed : int = 1300 # Velocidad de la bala
+signal on_hit(damage :int)
+
+var speed : int = 1300 # Velocidad de la bala
+var damage : int = 10 # Daño de la bala
 
 func _ready() -> void:
 	_bullet_orientation()
@@ -8,13 +11,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_bullet_movement(delta)
 
+####### SEÑALES #######
+
 # Señal de Area2D que maneja comportamiento de balas al tocar en areas
-func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
+func _on_area_2d_area_entered(area: Area2D) -> void:
 	_kill_or_spare(area) # Recibe el area con la que interactua la bala
+	on_hit.emit(damage)
 
 # Señal de ScreenNotifier que elimina balas al salir del nivel 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+
+####### Funcionamiento Interno #######
 
 # Función privada que determina la orientación correcta del sprite/colisión de la bala
 func _bullet_orientation() -> void:
