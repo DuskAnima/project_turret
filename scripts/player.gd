@@ -56,3 +56,7 @@ func _add_gun_left() -> Node2D: # Nodo Gun asignado a la mano izquierda
 
 func _on_shoot_cooldown_timeout() -> void:
 	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("Boom, you are dead")

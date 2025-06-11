@@ -1,7 +1,5 @@
 extends Node2D
 
-signal on_hit(damage :int)
-
 var speed : int = 1300 # Velocidad de la bala
 var damage : int = 10 # Daño de la bala
 
@@ -16,7 +14,10 @@ func _process(delta: float) -> void:
 # Señal de Area2D que maneja comportamiento de balas al tocar en areas
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	_kill_or_spare(area) # Recibe el area con la que interactua la bala
-	on_hit.emit(damage)
+
+# Señal que detecta TileMapLayer con Physics Layer para eliminar la bala al chocar con paredes
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	queue_free()
 
 # Señal de ScreenNotifier que elimina balas al salir del nivel 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
