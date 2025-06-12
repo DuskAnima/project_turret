@@ -58,5 +58,5 @@ func _on_shoot_cooldown_timeout() -> void:
 	pass # Replace with function body.
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	print("Boom, you are dead")
