@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn1gll32sgrjt"]
+[gd_scene load_steps=6 format=3 uid="uid://cn1gll32sgrjt"]
 
 [ext_resource type="Texture2D" uid="uid://gqko7jyfg1sl" path="res://assets/icon.svg" id="1_yax5h"]
+[ext_resource type="PackedScene" uid="uid://chdvipyoumndw" path="res://scenes/lever.tscn" id="2_0lpna"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0lpna"]
 texture = ExtResource("1_yax5h")
@@ -34,11 +35,16 @@ texture_region_size = Vector2i(32, 32)
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16)
 1:1/0/custom_data_0 = true
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_exnah"]
+scenes/1/scene = ExtResource("2_0lpna")
+
 [sub_resource type="TileSet" id="TileSet_exnah"]
+tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 custom_data_layer_0/name = "movible"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_0lpna")
+sources/1 = SubResource("TileSetScenesCollectionSource_exnah")
 
 [node name="Walls" type="TileMapLayer"]
 tile_set = SubResource("TileSet_exnah")
