@@ -1,16 +1,18 @@
 extends PathFollow2D
+class_name Shooter
+
+@export var sprite : Sprite2D
+@export var right_hand : Marker2D
+@export var left_hand : Marker2D
+@export var collision : Area2D
 
 ### Variables de control
 var right_hand_active : bool = false # Notifica que la mano derecha tiene arma
 var left_hand_active : bool = false # Notifica  que la mano izquierda tiene arma
 
 # Intentando hacer un state machine
-enum state {RIGHT_SHOOT, LEFT_SHOOT} 
+enum state {ONE_HANDED, TWO_HANDED, RUSH} 
 #var current_state = ""
-#########
-
-var right_gun_cooldown : bool = false # Notifica que la mano derecha está en cooldown
-var left_gun_cooldown : bool = false # Notifica que la mano izquierda está en cooldown
 
 ### Escenas y nodos
 var gun : PackedScene = preload('res://scenes/gun.tscn') # Escena del arma

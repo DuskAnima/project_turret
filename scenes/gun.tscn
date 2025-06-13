@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://bvtkclldqkx3x" path="res://scripts/gun.gd" id="1_og67c"]
 [ext_resource type="Texture2D" uid="uid://gqko7jyfg1sl" path="res://assets/icon.svg" id="1_x77fm"]
 
-[node name="Gun" type="Node2D"]
+[node name="Gun" type="Node2D" node_paths=PackedStringArray("sprite", "bullet_marker")]
 script = ExtResource("1_og67c")
+sprite = NodePath("Sprite2D")
+bullet_marker = NodePath("Marker2D")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,9 +18,3 @@ metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(32, 0)
-
-[node name="Damage" type="Label" parent="."]
-offset_left = -20.0
-offset_top = -36.0
-offset_right = 20.0
-offset_bottom = -13.0

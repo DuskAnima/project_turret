@@ -1,10 +1,10 @@
 extends Node2D
 class_name  Bullet
 
-const BULLET_SCENE : PackedScene = preload("res://scenes/bullet.tscn")
+const BULLET_SCENE : PackedScene = preload("uid://deyjfwsu286uu")
 
-@export var speed : int = 1300 # Velocidad de la bala
-@export var damage : int = 10 # Daño de la bala
+var speed : int = 1300 # Velocidad de la bala
+var damage : int = 10 # Daño de la bala
 @export var sprite : Sprite2D
 @export var collision: Area2D
 

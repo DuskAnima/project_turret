@@ -6,8 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(64, 64)
 
-[node name="Player" type="PathFollow2D" groups=["player"]]
+[node name="Player" type="PathFollow2D" node_paths=PackedStringArray("sprite", "right_hand", "left_hand", "collision") groups=["player"]]
 script = ExtResource("1_g2els")
+sprite = NodePath("Sprite2D")
+right_hand = NodePath("RigthHand")
+left_hand = NodePath("LeftHand")
+collision = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -22,12 +26,12 @@ position = Vector2(32, 24)
 [node name="LeftHand" type="Marker2D" parent="."]
 position = Vector2(32, -24)
 
-[node name="ShootCooldown" type="Timer" parent="."]
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_g2els")
 
-[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
+[node name="ShootCooldown" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
